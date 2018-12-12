@@ -41,7 +41,7 @@ d) When encountering a very poor region whose density does not allow C-alpha ato
 
 An example command: seqFinder.py --annotation_file inputfile2.txt --fasta_file inputfile1.txt --output_file out.txt
 
-After running the program, you will get a file named "out.txt" which contains the alignment results and the fitting scores between the target protein sequence and the side-chain size distribution pattern derived from the density map. The value of the fitting scores are between 0.0 and 1.0. The higher the fitting score, the better the sequence fits to the density map.
+After running the program, you will get a file named "out.txt" which contains the alignment results and the fitting scores between the target protein sequence and the side-chain size distribution pattern derived from the density map. The value of the fitting scores is between 0.0 and 1.0. The higher the fitting score, the better the sequence fits to the density map.
 
 
 
