@@ -2,7 +2,7 @@
 import os, sys
 def main():
     options = parse_command_line()
-    ranked_seq_score_list = do_align(options)
+    ranked_seq_score_list, possible_alignment_dict = do_align(options)
 
     f = open(options.output_file, 'w')
     for each in ranked_seq_score_list:
@@ -34,8 +34,9 @@ def do_align(options):
     sequences_dict = sequences_read(options.fasta_file)
     windows = window_maker(annotation_pattern)
     seq_score_dict = score_calculate(windows, sequences_dict)
+    possible_alignment_dict = possible_alignment_search(windows, sequences_dict)
     ranked_seq_score_list = score_rank(seq_score_dict)
-    return ranked_seq_score_list
+    return ranked_seq_score_list, possible_alignment_dict
         
 def score_rank(seq_score_dict):
     seq_score_list = []
@@ -54,12 +55,44 @@ def score_rank(seq_score_dict):
                 break
     return ranked_seq_score_list
 
+def possible_alignment_search(windows, sequences_dict):
+    possible_alignment_dict = {}
+    for each in sequences_dict:
+        possible_alignment_list = find_possible_alignments(windows, sequences_dict[each])
+        possible_alignment_dict[each] = possible_alignment_list
+    return possible_alignment_dict
+
 def score_calculate(windows, sequences_dict):
     score_dict = {}
     for each in sequences_dict:
         score = find_max_score(windows, sequences_dict[each])
         score_dict[each] = score
     return score_dict
+
+def find_possible_alignments(windows, sequence):
+    possible_alignment_list = []
+    for window in windows:
+        if len(window[0]) > len(sequence) - 1:
+            continue
+        for i in range(1, len(sequence) - len(window[0]) + 1):
+            count_list = []
+            aligned_list = []
+            for j in range(len(window[0])):
+                if window[0][j] != 'X':
+                    aligned_list.append([window[1][j], i + j + 1, sequence[i + j]])
+                    dif = window[0][j] - amino_acid_size_num(sequence[i + j])
+                    if dif >= 2:
+                        count_list = []
+                        break
+                    elif dif == 1:
+                        count_list.append(0)
+                    elif dif < 1:
+                        count_list.append(6 + dif)
+            if count_list == []:
+                continue
+            score = sum(count_list) / float(len(count_list)) / 6.0
+            possible_alignment_list.append([score, aligned_list])
+    return possible_alignment_list
 
 def find_max_score(windows, sequence):
     max_score = 0
@@ -172,7 +205,8 @@ def annotation_read(fn):
     line = f.readlines()
     data = []
     for each in line:
-        data.append(each.split())
+        #data.append(each.split())
+        data.append([each.split()[0], each.split()[1]])
     data = data_sort(data)
     return data
 
