@@ -1,0 +1,80 @@
+****************
+aligned protein name: sequence_02
+fitting score: 0.559140
+aligned sequence:
+	#column 1: residue number of the C-alpha model
+	#column 2: residue number of the aligned protein sequence
+	#column 3: residue name of the aligned protein sequence
+	7	80	K	
+	8	81	K	
+	11	84	K	
+	15	88	K	
+	19	92	K	
+	25	98	F	
+	26	99	S	
+	29	102	Y	
+	30	103	K	
+	31	104	E	
+	33	106	S	
+	34	107	R	
+	35	108	K	
+	38	111	T	
+	41	114	V	
+	42	115	V	
+	47	120	D	
+	55	128	E	
+	59	132	K	
+	62	135	E	
+	63	136	K	
+	68	141	L	
+	69	142	Y	
+	70	143	D	
+	74	147	I	
+	82	155	E	
+	85	158	M	
+	87	160	L	
+	88	161	K	
+	89	162	T	
+	92	165	H	
+
+
+****************
+aligned protein name: sequence_01
+fitting score: 0.930108
+aligned sequence:
+	#column 1: residue number of the C-alpha model
+	#column 2: residue number of the aligned protein sequence
+	#column 3: residue name of the aligned protein sequence
+	7	11	L	
+	8	12	L	
+	11	15	F	
+	15	19	M	
+	19	23	I	
+	25	29	I	
+	26	30	A	
+	29	33	R	
+	30	34	F	
+	31	35	F	
+	33	37	I	
+	34	38	A	
+	35	39	R	
+	38	42	A	
+	41	45	V	
+	42	46	V	
+	47	51	L	
+	55	59	S	
+	59	63	L	
+	62	66	Y	
+	63	67	L	
+	68	72	K	
+	69	73	F	
+	70	74	V	
+	74	78	Y	
+	82	86	V	
+	85	89	L	
+	87	91	H	
+	88	92	K	
+	89	93	L	
+	92	96	F	
+
+
