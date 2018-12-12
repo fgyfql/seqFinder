@@ -1,9 +1,9 @@
 # seqFinder
 ****************
 If you have:
-    a better than ~3.5 A resolution density map
+    a better than ~3.5 A resolution density map,
     a well built C-alpha model
-    protein sequence cantidates for the C-alpha model
+    and protein sequence cantidates for the C-alpha model, 
 then you could try this program for finding the target sequence of the C-alpha model.
 
 
