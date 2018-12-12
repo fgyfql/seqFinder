@@ -9,18 +9,22 @@ def main():
         if each[1][0] == 0:
             continue
         f.write("****************\n")
-        f.write("aligned protein name: %s\n" %each[0].strip('>'))
-        f.write("fitting score: %f\n" % each[1][0])
-        f.write("aligned sequence:\n")
         f.write('\t#column 1: residue number of the C-alpha model\n')
         f.write('\t#column 2: residue number of the aligned protein sequence\n')
         f.write('\t#column 3: residue name of the aligned protein sequence\n')
-        for eac in each[1][1]:
-            f.write('\t')
-            for ea in eac:
-                f.write(str(ea)+'\t')
-            f.write('\n')
-        f.write('\n\n')
+        f.write("aligned protein name: %s\n" %each[0].strip('>'))
+
+        for i in range(len(possible_alignment_dict[each[0]])):
+            possible_alignment_list = possible_alignment_dict[each[0]]
+            f.write("fitting score %d: %f\n" % (i, possible_alignment_list[i][0]))
+            f.write("aligned sequence %d:\n" % i)
+
+            for eac in possible_alignment_list[i][1]:
+                f.write('\t')
+                for ea in eac:
+                    f.write(str(ea)+'\t')
+                f.write('\n')
+            f.write('\n\n')
     f.close()
 
 def do_align(options):
