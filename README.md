@@ -6,7 +6,8 @@ If you have
     and protein sequence cantidates for the C-alpha model, 
 then you could try this program for finding the target sequence of the C-alpha model.
 
-If this program is useful in your work, pleas cite our paper: XXXXX.
+If this program is useful in your work, pleas cite our paper: 
+Fang, Q. et al. Near-atomic structure of a giant virus. Nat. Commun. 10, 388 (2019)
 
 If you have questions when using this program, please contact Qianglin Fang via fang163@purdue.edu (Email).
 
